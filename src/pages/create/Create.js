@@ -47,7 +47,7 @@ export default function Create() {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    "Origin": "https://your-frontend-domain.com"
+                    "Origin": "*"
                 },
                 mode: "cors",
                 credentials: "include",
