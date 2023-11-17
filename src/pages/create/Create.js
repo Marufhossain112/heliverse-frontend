@@ -47,10 +47,9 @@ export default function Create() {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    "Origin": "*"
+                    "Access-Control-Allow-Origin": "*"
                 },
-                mode: "cors",
-                credentials: "include",
+
                 body: JSON.stringify({
                     caption: data.caption,
                     photo: imgData?.data.url,
