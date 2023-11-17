@@ -1,12 +1,10 @@
-import { Button } from 'flowbite-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PostCard from './pages/card/Card';
 
 const Home = () => {
     return (
         <div>
-            <h1 className='text-xl'>
-                This is home <Button>Click me</Button>
-            </h1>
+            <PostCard />
         </div>
     );
 };

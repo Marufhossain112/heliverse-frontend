@@ -49,12 +49,12 @@ export default function NavigationBar() {
                         Home
                     </p>
                 </NavLink>
-
+          
                 {<>
                     {isLoggedIn ? (
-                        <> <NavLink to={'/new-book'} className={({ isActive, isPending }) =>
+                        <> <NavLink to={'/create'} className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "active" : ""
-                        }>Add Book</NavLink>
+                        }>Create</NavLink>
                             <NavLink to={'/signin'} onClick={handleLogOut}>Sign Out</NavLink></>
                     ) : (
                         <NavLink to="/signin">Sign in</NavLink>

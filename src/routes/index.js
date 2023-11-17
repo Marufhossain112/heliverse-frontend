@@ -5,8 +5,11 @@ import {
 
 import Home from "../Home";
 import Layout from "../Layout";
-import Signup from "../pages/signUp/signUp";
-import Signin from "../pages/signIn/signIn";
+import Signup from "../pages/signUp/SignUp";
+import Signin from "../pages/signIn/SignIn";
+import Create from "../pages/create/Create";
+import PostCard from "../pages/card/Card";
+import CardDetail from "../pages/card/CardDetail";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -23,6 +26,18 @@ export const router = createBrowserRouter([
             {
                 path: "/signin",
                 element: <Signin />,
+            },
+            {
+                path: "/create",
+                element: <Create />,
+            },
+            {
+                path: "/card",
+                element: <PostCard />
+            },
+            {
+                path: "/cardDetails/:id",
+                element: <CardDetail />
             },
         ],
     },
