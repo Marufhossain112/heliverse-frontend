@@ -50,7 +50,7 @@ export default function Create() {
                 },
                 body: JSON.stringify({
                     caption: data.caption,
-                    photo: imgData.data.url,
+                    photo: imgData?.data.url,
                     userName,
                     userEmail
                 })
