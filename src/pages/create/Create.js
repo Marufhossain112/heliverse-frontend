@@ -46,8 +46,11 @@ export default function Create() {
             fetch(`https://insta-clone-backend-pro.vercel.app/posts/create-post`, {
                 method: "POST",
                 headers: {
-                    "content-type": "application/json"
+                    "content-type": "application/json",
+                    "Origin": "https://your-frontend-domain.com"
                 },
+                mode: "cors",
+                credentials: "include",
                 body: JSON.stringify({
                     caption: data.caption,
                     photo: imgData?.data.url,
