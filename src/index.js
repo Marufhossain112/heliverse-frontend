@@ -6,24 +6,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ToastContainer } from 'react-toastify';
 import { persistor, store } from './redux/store';
 import {
-  createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './Home';
-import Layout from './Layout';
+
 import { Provider } from 'react-redux';
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-    ],
-  },
-]);
+import { router } from './routes';
+import 'react-toastify/dist/ReactToastify.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
