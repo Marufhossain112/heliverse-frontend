@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import PostCard from './pages/card/Card';
-
+import React from 'react';
 const Home = () => {
     return (
         <div>
-            <PostCard />
+            <p>Home page</p>
         </div>
     );
 };
