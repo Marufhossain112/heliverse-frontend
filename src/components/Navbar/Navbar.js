@@ -11,7 +11,7 @@ export default function NavigationBar() {
             <Navbar.Brand href="/">
                 <div className="logo max-h-20">
                 </div>
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white ">
+                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white ml-5">
                     Heliverse
                 </span>
             </Navbar.Brand>
