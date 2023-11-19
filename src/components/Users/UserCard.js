@@ -5,14 +5,20 @@ import { useState } from 'react';
 
 export function UserCard() {
     const [currentPage, setCurrentPage] = useState(1);
-    const { data, isLoading } = useGetUsersQuery(currentPage);
-    console.log(currentPage);
+    const [searchTerm, setSearchTerm] = useState("");
+    const { data, isLoading } = useGetUsersQuery({ currentPage, searchTerm });
+    // console.log(searchTerm);
     if (isLoading) {
         return <p>Laoding...</p>;
     }
-    console.log(data?.data);
     return (
         <>
+            <div className='flex justify-end mb-3'>
+                <form>
+                    <input onChange={(e) => setSearchTerm(e.target.value)
+                    } type='search' placeholder='Search...' />
+                </form>
+            </div>
             <div className='user-container grid grid-cols-5 gap-4'>
                 {data?.data?.map((user, index) => (
                     <Card className="max-w-sm">
