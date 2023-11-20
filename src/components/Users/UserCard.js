@@ -1,4 +1,4 @@
-import { Card } from 'flowbite-react';
+import { Button, Card } from 'flowbite-react';
 import { useGetUsersQuery } from '../../redux/features/users/usersApi';
 import { PaginationUi } from '../pagination/pagination';
 import { useState } from 'react';
@@ -7,7 +7,6 @@ export function UserCard() {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const { data, isLoading } = useGetUsersQuery({ currentPage, searchTerm });
-    // console.log(searchTerm);
     if (isLoading) {
         return <p>Laoding...</p>;
     }
@@ -41,6 +40,9 @@ export function UserCard() {
                                     user?.available ? <span className='text-green-600'>True</span> : <span className='text-red-600'>False</span>
                                 } </span>
                             </div>
+                            <Button color='dark' disabled={user && !user.available} className='mt-5'>
+                                Add to team
+                            </Button>
                         </div>
                     </Card>
                 ))}
