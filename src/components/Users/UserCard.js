@@ -1,4 +1,4 @@
-import { Button, Card } from 'flowbite-react';
+import { Button, Card, Spinner } from 'flowbite-react';
 import { useGetUsersQuery } from '../../redux/features/users/usersApi';
 import { PaginationUi } from '../pagination/pagination';
 import { useState } from 'react';
@@ -8,7 +8,9 @@ export function UserCard() {
     const [searchTerm, setSearchTerm] = useState("");
     const { data, isLoading } = useGetUsersQuery({ page: currentPage, searchTerm });
     if (isLoading) {
-        return <p>Laoding...</p>;
+        return <div style={{ height: "100vh" }} className="flex justify-center items-center">
+            <Spinner size="lg" aria-label="Center-aligned spinner example" />
+        </div>;
     }
     return (
         <>
@@ -31,11 +33,11 @@ export function UserCard() {
                                 width="96"
                                 className="mb-3 rounded-full shadow-lg"
                             />
-                            <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{`${user?.first_name} ${user?.last_name}`}</h5>
+                            <h5 className="mb-1 text-md font-medium text-gray-900 dark:text-white">{`${user?.first_name} ${user?.last_name}`}</h5>
                             <span className="text-sm text-gray-500 dark:text-gray-400">{user?.email}</span>
                             <div className=" flex flex-col justify-center items-center  ">
                                 <span className="text-sm text-gray-700">Gender: <span>{user?.gender}</span> </span>
-                                <span className="text-sm text-gray-700">Domain: <span>{user?.domain}</span> </span>
+                                <span className="text-sm text-gray-700">Domain: <span>{user?.domain.length > 8 ? user?.domain.slice(0, 9) : user?.domain}</span> </span>
                                 <span className="text-sm text-gray-700">Availability: {
                                     user?.available ? <span className='text-green-600'>True</span> : <span className='text-red-600'>False</span>
                                 } </span>
