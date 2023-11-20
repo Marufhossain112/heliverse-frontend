@@ -6,7 +6,7 @@ import { useState } from 'react';
 export function UserCard() {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
-    const { data, isLoading } = useGetUsersQuery({ currentPage, searchTerm });
+    const { data, isLoading } = useGetUsersQuery({ page: currentPage, searchTerm });
     if (isLoading) {
         return <p>Laoding...</p>;
     }
