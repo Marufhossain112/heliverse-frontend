@@ -55,3 +55,7 @@ select:focus {
   box-shadow: none;
   border-color: none;
 }
+.home-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
