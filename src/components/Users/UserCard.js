@@ -15,8 +15,6 @@ export function UserCard() {
     const { teams } = useSelector((state) => state.persistedReducer);
     // console.log(teams.teams);
     console.log({ selectedAvailability });
-
-
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
@@ -53,18 +51,18 @@ export function UserCard() {
     }
     return (
         <>
-            <div className='flex justify-end mb-3'>
+            <div className='search-box flex mb-3'>
                 <form>
                     <input onChange={(e) => setSearchTerm(e.target.value)
                     } type='search' placeholder='Search...' />
                 </form>
             </div>
 
-            <div className='user-container  flex gap-4'>
-                <div className="mr-10">
+            <div className='user-parent-container  flex gap-4'>
+                <div className="filter-container mr-10">
                     <Filtering selectedDomain={selectedDomain} setSelectedDomain={setSelectedDomain} selectedGender={selectedGender} setSelectedGender={setSelectedGender} selectedAvailability={selectedAvailability} setSelectedAvailability={setSelectedAvailability} />
                 </div>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="user-container grid grid-cols-4 gap-4">
                     {data?.data?.map((user, index) => (
                         <Card className="max-w-sm">
                             <div className="flex flex-col items-center pb-10">

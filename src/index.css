@@ -59,3 +59,45 @@ select:focus {
   max-width: 1280px;
   margin: 0 auto;
 }
+
+/* Portrait */
+@media only screen and (max-width: 480px) {
+  /* Styles for mobile phones in portrait mode */
+}
+/* Landscape */
+@media only screen and (max-width: 767px) {
+  /* Styles for mobile phones in landscape mode */
+  .user-parent-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-container {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .search-box {
+    justify-content: center;
+  }
+  .filter-container{
+    display: flex;
+    align-items: baseline;
+    margin-right: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Styles for tablets */
+}
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  /* Styles for small laptops and desktops */
+  .search-box {
+    justify-content: end;
+  }
+}
+@media only screen and (min-width: 1366px) and (max-width: 1919px) {
+  /* Styles for medium to large desktops */
+  .search-box {
+    justify-content: end;
+  }
+}

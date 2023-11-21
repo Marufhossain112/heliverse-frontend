@@ -12,7 +12,7 @@ export function AvailabilityFilter({ selectedAvailability, setSelectedAvailabili
         <>
             {/* gender selecting */}
             <fieldset className="flex max-w-md flex-col gap-4">
-                <legend className="mb-4 font-bold">Gender</legend>
+                <legend className="mb-4 font-bold">Availability</legend>
                 <div className="flex items-center gap-2">
                     <Radio id="True" name="Availability" value={true} defaultChecked checked={selectedAvailability === true}
                         onChange={handleAvailabilityChange} />

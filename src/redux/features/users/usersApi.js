@@ -1,16 +1,4 @@
-// import { api } from "../api/apiSlice";
-// const usersApi = api.injectEndpoints({
-//     endpoints: (builder) => ({
-//         getUsers: builder.query({
-//             query: ({ page, searchTerm, domain, gender, available }) => `users?page=${page}&searchTerm=${searchTerm}&domain=${domain}&gender=${gender}&available=${available}`,
-//         }),
-//     })
-// });
-
-// export const { useGetUsersQuery } = usersApi;
-
 import { api } from "../api/apiSlice";
-
 const usersApi = api.injectEndpoints({
     endpoints: (builder) => ({
         getUsers: builder.query({
