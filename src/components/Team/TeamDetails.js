@@ -20,10 +20,10 @@ export function TeamDetails() {
                 <h5 className='text-lg text-center pt-3 pb-2 font-bold'>Team Members</h5>
             </div>
             {
-                teams?.teams?.length === 0 && <div className='text-center mx-auto text-gray-700'>No members yet added to the team.</div>
+                teams?.length === 0 && <div className='text-center mx-auto text-gray-700'>No members yet added to the team.</div>
             }
             <div className='user-container grid grid-cols-5 gap-4'>
-                {teams?.teams?.map((user, index) => (
+                {teams?.map((user, index) => (
                     <Card className="max-w-sm">
                         <div className="flex justify-end px-4 pt-4">
                         </div>

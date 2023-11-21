@@ -22,7 +22,7 @@ export function UserCard() {
     const [createTeam] = useCreateTeamMutation();
     let members = [];
     const handleAddToTeam = async (user) => {
-        const memberExist = teams?.teams?.find((usr) => usr?._id === user?._id);
+        const memberExist = teams?.find((usr) => usr?._id === user?._id);
         console.log({ memberExist });
         if (memberExist) {
             toast.error("Member is already added to the team.");

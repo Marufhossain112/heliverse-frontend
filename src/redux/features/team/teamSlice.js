@@ -10,7 +10,7 @@ const teamSlice = createSlice({
     initialState,
     reducers: {
         setTeam(state, action) {
-            state.teams.teams = [...state.teams.teams, action.payload];
+            state.teams = [...state.teams, action.payload];
         }
     },
 });
