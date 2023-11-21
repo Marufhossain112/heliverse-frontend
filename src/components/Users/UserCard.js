@@ -2,11 +2,44 @@ import { Button, Card, Spinner } from 'flowbite-react';
 import { useGetUsersQuery } from '../../redux/features/users/usersApi';
 import { PaginationUi } from '../pagination/pagination';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useCreateTeamMutation } from '../../redux/features/team/teamApi';
+import { setTeam } from '../../redux/features/team/teamSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export function UserCard() {
+    const { teams } = useSelector((state) => state.persistedReducer);
+    console.log(teams.teams);
+
+    const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const { data, isLoading } = useGetUsersQuery({ page: currentPage, searchTerm });
+    const [createTeam] = useCreateTeamMutation();
+    let members = [];
+    const handleAddToTeam = async (user) => {
+        const memberExist = teams?.teams?.find((usr) => usr?._id === user?._id);
+        console.log({ memberExist });
+        if (memberExist) {
+            toast.error("Member is already added to the team.");
+            return;
+        }
+        members.push(user);
+        const data = {
+            members: members
+        };
+        // console.log(data);
+        dispatch(setTeam(user));
+        try {
+            await createTeam(data);
+            // If createTeam is successful, show success toast
+            toast.success("Added to team successfully.");
+        } catch (error) {
+            // If there's an error with createTeam, show an error toast
+            toast.error("Error adding to team. Please try again.");
+            console.error(error);
+        }
+    };
     if (isLoading) {
         return <div style={{ height: "100vh" }} className="flex justify-center items-center">
             <Spinner size="lg" aria-label="Center-aligned spinner example" />
@@ -23,8 +56,7 @@ export function UserCard() {
             <div className='user-container grid grid-cols-5 gap-4'>
                 {data?.data?.map((user, index) => (
                     <Card className="max-w-sm">
-                        <div className="flex justify-end px-4 pt-4">
-                        </div>
+
                         <div className="flex flex-col items-center pb-10">
                             <img
                                 alt="avatar"
@@ -42,7 +74,7 @@ export function UserCard() {
                                     user?.available ? <span className='text-green-600'>True</span> : <span className='text-red-600'>False</span>
                                 } </span>
                             </div>
-                            <Button color='dark' disabled={user && !user.available} className='mt-5'>
+                            <Button color='dark' disabled={user && !user.available} className='mt-5' onClick={() => handleAddToTeam(user)}>
                                 Add to team
                             </Button>
                         </div>

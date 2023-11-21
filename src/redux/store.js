@@ -3,13 +3,14 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { api } from "./features/api/apiSlice";
 import userReducer from "./features/user/userSlice";
+import teamReducer from './features/team/teamSlice';
 
 // Persist configuration for the regular Redux store
 const reduxPersistConfig = {
     key: 'root', // Change this key if needed
     storage,
 };
-const rootReducer = userReducer;
+const rootReducer = teamReducer;
 // Persist configuration for the RTK Query cache
 
 
